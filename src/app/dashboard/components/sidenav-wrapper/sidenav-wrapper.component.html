@@ -10,7 +10,7 @@
         </mat-icon>
       </mat-list-item>
 
-      <mat-list-item [routerLink]="'dashboard'">
+      <mat-list-item>
         <mat-icon mat-list-icon>home</mat-icon>
         <span *ngIf="isExpanded" class="menu-item">Dashboard</span>
         <mat-menu #subMenu="matMenu">
@@ -26,11 +26,14 @@
           <button mat-menu-item [routerLink]="'schedule-table'">
             Schedule table
           </button>
-          <button mat-menu-item [routerLink]="'service-consumer'">
+          <button mat-menu-item [routerLink]="'service-consumer-table'">
             Service Consumer
           </button>
-          <button mat-menu-item [routerLink]="'service-provider'">
+          <button mat-menu-item [routerLink]="'service-provider-table'">
             Service provider
+          </button>
+          <button mat-menu-item [routerLink]="'students-table'">
+            students table
           </button>
         </mat-menu>
         <button mat-icon-button [matMenuTriggerFor]="subMenu">

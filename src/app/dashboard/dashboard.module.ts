@@ -8,20 +8,35 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { SidenavWrapperComponent } from './components/sidenav-wrapper/sidenav-wrapper.component';
 import { MatMenuModule } from '@angular/material/menu';
+import {MatTableModule} from '@angular/material/table'
+import {MatInputModule} from '@angular/material/input'
+import {MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
+
+//----------
+import { SidenavWrapperComponent } from './components/sidenav-wrapper/sidenav-wrapper.component';
+import { AppointmentTableComponent } from './components/appointment-table/appointment-table.component';
+import { RequestTableComponent } from './components/request-table/request-table.component';
+import { ReviewTableComponent } from './components/review-table/review-table.component';
+import { ScheduleTableComponent } from './components/schedule-table/schedule-table.component';
+import { ServiceConsumerComponent } from './components/service-consumer/service-consumer.component';
+import { ServiceProviderComponent } from './components/service-provider/service-provider.component';
+import { StudentsComponent } from './components/students/students.component';
 
 
 @NgModule({
-  declarations: [SidenavWrapperComponent, DashboardComponent, InfoComponent, UserComponent],
+  declarations: [SidenavWrapperComponent, DashboardComponent, InfoComponent, UserComponent, AppointmentTableComponent, RequestTableComponent, ReviewTableComponent, ScheduleTableComponent, ServiceConsumerComponent, ServiceProviderComponent, StudentsComponent],
   imports: [
-    CommonModule,
+    CommonModule,FormsModule,
     DashboardRoutingModule,
     // NG Material Modules
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatToolbarModule,MatMenuModule
+    MatToolbarModule,MatMenuModule,
+    MatTableModule,MatInputModule,MatButtonModule
+    
   ]
 })
 export class DashboardModule { }
