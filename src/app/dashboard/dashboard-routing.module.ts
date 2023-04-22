@@ -10,7 +10,6 @@ import { ReviewTableComponent } from './components/review-table/review-table.com
 import { ScheduleTableComponent } from './components/schedule-table/schedule-table.component';
 import { ServiceConsumerComponent } from './components/service-consumer/service-consumer.component';
 import { ServiceProviderComponent } from './components/service-provider/service-provider.component';
-import { StudentService } from './services/student.service';
 import { StudentsComponent } from './components/students/students.component';
 const routes: Routes = [
   // Sidenavwrapper Component acts like a shell & the active child Component gets rendered into the <router-outlet>

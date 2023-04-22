@@ -1,23 +1,37 @@
 import { DataSource } from '@angular/cdk/collections';
 import { Injectable, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFirestore,AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { MatTableDataSource } from '@angular/material/table';
 import { doc, updateDoc, deleteField, collection } from "firebase/firestore";
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+
+
+interface Students{
+  id:string,
+  studentName:string,
+  studentAge:string
+}
 
 @Injectable({
   providedIn: 'root'
 })
-
-
 export class StudentService implements OnInit{
-
-  constructor(private db:AngularFirestore) {}
   
+
   ngOnInit(): void {
     this.db.collection('students').valueChanges().subscribe(val=>console.log(val))
   }
 
+  private studentsCollection: AngularFirestoreCollection<Students>;
+  students: Observable<Students[]>;
 
+
+  constructor(private db:AngularFirestore) {
+    this.studentsCollection = db.collection<Students>('students');
+    this.students = this.studentsCollection.valueChanges();
+  }
+  
   addStudent(studentDetails:any){
  
     this.db.collection('students').add(studentDetails).then((docRef)=>{
@@ -36,22 +50,21 @@ export class StudentService implements OnInit{
       console.log('done')
   
   }
-  deleteStudent(id:string): void {
-    const documentRef = this.db.collection('students').doc(id);
-    documentRef.delete().then(() => {
-      console.log('Document successfully deleted!');
-    }).catch((error) => {
-      console.error('Error removing document: ', error);
-    });
-  }
-
-
   
+  deleteStudent(id:string): void {
+    this.studentsCollection.doc(id).delete();
+
+  }
 
   getStudents(){
     return this.db.collection('students',ref =>ref.orderBy('studentName')).valueChanges()
   }
 
   
+}
+interface Students{
+  id:string,
+  studentName:string,
+  studentAge:string
 }
 

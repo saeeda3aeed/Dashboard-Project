@@ -21,8 +21,12 @@ export interface PeriodicElement{
   @Component({
     selector: 'app-students',
     templateUrl: './students.component.html',
-    styleUrls: ['./students.component.scss']
+    styleUrls: ['./students.component.scss'],
+    providers:[
+      StudentService
+    ]
   })  
+  
   
   export class StudentsComponent implements OnInit {
 
