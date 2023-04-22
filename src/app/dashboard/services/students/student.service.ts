@@ -1,9 +1,5 @@
-import { DataSource } from '@angular/cdk/collections';
 import { Injectable, OnInit } from '@angular/core';
 import { AngularFirestore,AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { MatTableDataSource } from '@angular/material/table';
-import { doc, updateDoc, deleteField, collection } from "firebase/firestore";
-import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 
@@ -62,9 +58,5 @@ export class StudentService implements OnInit{
 
   
 }
-interface Students{
-  id:string,
-  studentName:string,
-  studentAge:string
-}
+
 
