@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {StudentService} from '../../services/student.service'
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { CollectionViewer, DataSource } from '@angular/cdk/collections';
+import { MatTableDataSource } from '@angular/material/table';
+import { Observable } from 'rxjs';
 
 
 export interface PeriodicElement{
@@ -8,9 +12,11 @@ export interface PeriodicElement{
   studentAge:number
 }
 
+
   const ELEMENT_DATA: PeriodicElement[] = [
-    {studentName:'ahmed',studentAge:20}
+    {studentAge:20,studentName:'ahmed'}
   ]
+
 
   @Component({
     selector: 'app-students',
@@ -19,34 +25,44 @@ export interface PeriodicElement{
   })  
   
   export class StudentsComponent implements OnInit {
+
+    constructor(private db:AngularFirestore,private student: StudentService ) { }
   ngOnInit(): void {
-  }
+    this.db.collection('students').valueChanges().subscribe(val=>console.log(val))
+
+
+    }
+    
   studentDetails ={
+    id:'',
     studentName: '',
     studentAge: ''
   }
-
-
-
-  constructor(private student: StudentService, private afs:AngularFirestoreModule) { }
   
   addStudent(){
     this.student.addStudent(this.studentDetails)
   }
-  
-  displayedColumns = ['Name','Age']
-  dataSource = ELEMENT_DATA
-  
-  // dataSource  = new studentDataSource(this.student)
+
+  removeStudent(id:string){
+    this.student.deleteStudent(id)
+  }
+
+
+
+  displayedColumns = ['Name','Age','Actions']
+  dataSource  = new studentDataSource(this.student)
+  }
+
+export class studentDataSource extends DataSource<any> {
+  constructor(private student : StudentService){
+    super()
+  }
+
+  connect(collectionViewer: CollectionViewer): Observable<any[]> {
+    return this.student.getStudents()
 }
-// export class studentDataSource extends DataSource<any> {
-//   constructor(private student : StudentService){
-//     super()
-//   }
-// connect(collectionViewer: CollectionViewer): Observable<any> {
-//       return this.student.getStudents()
-// }
-//     disconnect(collectionViewer: CollectionViewer): void {
-      
-//     }
-//   }
+
+disconnect(collectionViewer: CollectionViewer): void {
+  
+}
+  }
