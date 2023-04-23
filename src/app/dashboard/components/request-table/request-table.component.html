@@ -1,1 +1,30 @@
 <p>request-table works!</p>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+  <ng-container matColumnDef="Client_ID">
+    <th mat-header-cell *matHeaderCellDef>Client_ID</th>
+    <td mat-cell *matCellDef="let element">{{ element.Client_ID }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Date">
+    <th mat-header-cell *matHeaderCellDef>Date</th>
+    <td mat-cell *matCellDef="let element">{{ element.Date }}</td>
+  </ng-container>
+  <ng-container matColumnDef="Details">
+    <th mat-header-cell *matHeaderCellDef>Details</th>
+    <td mat-cell *matCellDef="let element">{{ element.Details }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Req_ID">
+    <th mat-header-cell *matHeaderCellDef>Req_ID</th>
+    <td mat-cell *matCellDef="let element">{{ element.Req_ID }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Worker_ID">
+    <th mat-header-cell *matHeaderCellDef>Worker_ID</th>
+    <td mat-cell *matCellDef="let element">{{ element.Worker_ID }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

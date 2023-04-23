@@ -17,9 +17,11 @@ export class AppointmentTableService implements OnInit {
     this.db.collection('Appointment_Table').valueChanges().subscribe(val=>console.log(val))
   } 
 
-  constructor(private db:AngularFirestore) { }
+  constructor(private db:AngularFirestore) { 
+    
+  }
 
-  getStudents(){
-    return this.db.collection('Appointment_Table',ref =>ref.orderBy('APP_ID')).valueChanges()
+  getAppointments(){
+    return this.db.collection('Appointment_Table',ref =>ref.orderBy('App_ID')).valueChanges()
   }
 }
