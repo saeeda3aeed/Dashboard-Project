@@ -1,1 +1,54 @@
 <p>service-consumer works!</p>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+  <ng-container matColumnDef="Address">
+    <th mat-header-cell *matHeaderCellDef>Address</th>
+    <td mat-cell *matCellDef="let element">{{ element.Address }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Client_ID">
+    <th mat-header-cell *matHeaderCellDef>Client_ID</th>
+    <td mat-cell *matCellDef="let element">{{ element.Client_ID }}</td>
+  </ng-container>
+  <ng-container matColumnDef="Email">
+    <th mat-header-cell *matHeaderCellDef>Email</th>
+    <td mat-cell *matCellDef="let element">{{ element.Email }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="First_Name">
+    <th mat-header-cell *matHeaderCellDef>First_Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.First_Name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Last_Name">
+    <th mat-header-cell *matHeaderCellDef>Last_Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.Last_Name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Location_I">
+    <th mat-header-cell *matHeaderCellDef>Location_I</th>
+    <td mat-cell *matCellDef="let element">{{ element.Location_I }}</td>
+  </ng-container>
+  <ng-container matColumnDef="Location_II">
+    <th mat-header-cell *matHeaderCellDef>Location_II</th>
+    <td mat-cell *matCellDef="let element">{{ element.Location_II }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Mob_Num_I">
+    <th mat-header-cell *matHeaderCellDef>Mob_NumI</th>
+    <td mat-cell *matCellDef="let element">{{ element.Mob_Num_I }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Mob_Num_II">
+    <th mat-header-cell *matHeaderCellDef>Mob_NumII</th>
+    <td mat-cell *matCellDef="let element">{{ element.Mob_Num_II }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Password">
+    <th mat-header-cell *matHeaderCellDef>Password</th>
+    <td mat-cell *matCellDef="let element">{{ element.Password }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { CollectionViewer, DataSource } from '@angular/cdk/collections';
+import { Observable } from 'rxjs';
+import { RequestTableService } from '../../services/request-table/request-table.service';
+import { ReviewTableService } from '../../services/review-table/review-table.service';
 
 @Component({
   selector: 'app-review-table',
@@ -7,9 +12,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReviewTableComponent implements OnInit {
 
-  constructor() { }
+  constructor(private reviewTable: ReviewTableService, private db:AngularFirestore) { }
 
-  ngOnInit(): void {
+  requestTableDetails = {
+    Rev_ID:'',
+    Worker_ID:''
   }
 
+  ngOnInit(): void {
+    this.db.collection('Review Table').valueChanges().subscribe(val=>console.log(val))
+
+  }
+
+  displayedColumns = ['Rev_ID','Worker_ID']
+
+
+
+  dataSource = new reviewTableDataSource(this.reviewTable);
+  
+  
+}
+
+
+  export class reviewTableDataSource extends DataSource<any> {
+    constructor(private reviewTable : ReviewTableService){
+      super()
+    }
+  
+    connect(collectionViewer: CollectionViewer): Observable<any[]> {
+      return this.reviewTable.getReviewTable()
+  }
+  
+  disconnect(collectionViewer: CollectionViewer): void {
+    
+  }
 }

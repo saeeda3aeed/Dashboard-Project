@@ -2,14 +2,6 @@ import { Injectable, OnInit } from '@angular/core';
 import { AngularFirestore,AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 
-interface RequestTable{
-  ClientId:string,
-   Date:string,
-   Details:string,
-   Req_ID:string,
-   Worker_ID:string
-}
-
 @Injectable({
   providedIn: 'root'
 })

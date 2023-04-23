@@ -1,5 +1,3 @@
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { AppointmentTableService } from '../../services/appointment-table/appointment-table.service';
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { CollectionViewer, DataSource } from '@angular/cdk/collections';
