@@ -27,14 +27,20 @@ import { StudentService } from '../../services/students/student.service';
 
     }
     
+    //needed to add a student
   studentDetails ={
     id:'',
     studentName: '',
-    studentAge: ''
+    studentAge: '',
+    state:false
   }
   
   addStudent(){
     this.student.addStudent(this.studentDetails)
+  }
+
+  acceptStudent(id:string){
+    this.student.acceptStudent(id)
   }
 
   removeStudent(id:string){
@@ -43,7 +49,7 @@ import { StudentService } from '../../services/students/student.service';
 
 
 
-  displayedColumns = ['Name','Age','Actions']
+  displayedColumns = ['Name','Age','State','Actions']
   dataSource  = new studentDataSource(this.student)
   }
 

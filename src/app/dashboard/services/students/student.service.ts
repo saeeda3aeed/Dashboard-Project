@@ -46,6 +46,13 @@ export class StudentService implements OnInit{
       console.log('done')
   
   }
+
+  acceptStudent(id:string){
+    const docRef = this.db.collection('students').doc(id);
+    docRef.update({ State: true })
+    .then(() => console.log('Attribute updated successfully!'))
+    .catch((error) => console.error('Error updating attribute:', error));
+  }
   
   deleteStudent(id:string): void {
     this.studentsCollection.doc(id).delete();

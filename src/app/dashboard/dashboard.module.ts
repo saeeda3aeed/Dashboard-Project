@@ -23,10 +23,11 @@ import { ScheduleTableComponent } from './components/schedule-table/schedule-tab
 import { ServiceConsumerComponent } from './components/service-consumer/service-consumer.component';
 import { ServiceProviderComponent } from './components/service-provider/service-provider.component';
 import { StudentsComponent } from './components/students/students.component';
+import { PendingServiceProviderComponent } from './components/pending-service-provider/pending-service-provider/pending-service-provider.component';
 
 
 @NgModule({
-  declarations: [SidenavWrapperComponent, DashboardComponent, InfoComponent, UserComponent, AppointmentTableComponent, RequestTableComponent, ReviewTableComponent, ScheduleTableComponent, ServiceConsumerComponent, ServiceProviderComponent, StudentsComponent],
+  declarations: [SidenavWrapperComponent, DashboardComponent, InfoComponent, UserComponent, AppointmentTableComponent, RequestTableComponent, ReviewTableComponent, ScheduleTableComponent, ServiceConsumerComponent, ServiceProviderComponent, StudentsComponent, PendingServiceProviderComponent],
   imports: [
     CommonModule,FormsModule,
     DashboardRoutingModule,

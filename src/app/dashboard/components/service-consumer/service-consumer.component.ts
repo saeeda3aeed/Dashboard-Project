@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { CollectionViewer, DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs';
-import { RequestTableService } from '../../services/request-table/request-table.service';
 import { ServiceConsumerTableService } from '../../services/service-consumer/service-consumer-table.service';
 
 @Component({
@@ -44,7 +43,7 @@ export class ServiceConsumerComponent implements OnInit {
     'Location_II',
     'Mob_Num_I',
     'Mob_Num_II',
-    'Password']
+    ]
   
   
   

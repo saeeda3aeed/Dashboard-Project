@@ -11,6 +11,7 @@ import { ScheduleTableComponent } from './components/schedule-table/schedule-tab
 import { ServiceConsumerComponent } from './components/service-consumer/service-consumer.component';
 import { ServiceProviderComponent } from './components/service-provider/service-provider.component';
 import { StudentsComponent } from './components/students/students.component';
+import { PendingServiceProviderComponent } from './components/pending-service-provider/pending-service-provider/pending-service-provider.component';
 const routes: Routes = [
   // Sidenavwrapper Component acts like a shell & the active child Component gets rendered into the <router-outlet>
   {
@@ -53,6 +54,11 @@ const routes: Routes = [
         path: 'service-provider-table',
         component: ServiceProviderComponent
       },
+      {
+        path: 'pending-service-provider',
+        component: PendingServiceProviderComponent
+      },
+      
       {
         path: 'students-table',
         component: StudentsComponent
