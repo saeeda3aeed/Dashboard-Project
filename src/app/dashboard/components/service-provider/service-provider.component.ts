@@ -20,14 +20,15 @@ export class ServiceProviderComponent implements OnInit {
    Mob_Num_II:'',
     Profession:'',
     Rate_Ratio:'',
-    Worker_ID:''
+    Worker_ID:'',
+    State:false
 
   }
 
   ngOnInit(): void {
     this.db.collection('Service Provider Table').valueChanges().subscribe(val=>console.log(val))
   }
-  displayedColumns:[
+  displayedColumns=[
     'First_Name',
     'Last_Name',
     'Mob_Num_I',

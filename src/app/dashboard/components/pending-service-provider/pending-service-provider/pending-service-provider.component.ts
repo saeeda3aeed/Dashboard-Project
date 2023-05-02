@@ -10,9 +10,8 @@ import { PendingServiceProviderService } from 'src/app/dashboard/services/pendin
 })
 export class PendingServiceProviderComponent implements OnInit {
 
-  constructor(private pendingServiceProvider: PendingServiceProviderService, private db:AngularFirestore) { }
-  
-  pendingServiceProviderTableDetails = {
+  constructor(private serviceProvider: PendingServiceProviderService, private db:AngularFirestore) { }
+  serviceProviderTableDetails = {
     First_Name:'',
    Last_Name:'',
    Mob_Num_I:'',
@@ -20,14 +19,27 @@ export class PendingServiceProviderComponent implements OnInit {
     Profession:'',
     Rate_Ratio:'',
     Worker_ID:'',
-    state:false
+    State:false
 
   }
 
+  addServiceProvider(){
+    this.serviceProvider.addServiceProvider(this.serviceProviderTableDetails)
+  }
+
+  acceptServiceProvider(id:string){
+    this.serviceProvider.acceptServiceProvider(id)
+  }
+
+  removeServiceProider(id:string){
+this.serviceProvider.deleteServiceProvider(id)
+  }
+
+ 
   ngOnInit(): void {
-    this.db.collection('Pending Service Provider Table').valueChanges().subscribe(val=>console.log(val))
+    this.db.collection('Service Provider Table').valueChanges().subscribe(val=>console.log(val))
   }
-  displayedColumns:[
+  displayedColumns= [
     'First_Name',
     'Last_Name',
     'Mob_Num_I',
@@ -35,13 +47,16 @@ export class PendingServiceProviderComponent implements OnInit {
     'Profession',
     'Rate_Ratio',
     'Worker_ID',
-    'State'
+    'Actions'
+    
   ]
-
-  dataSource =  new PendingServiceProviderTableDataSource(this.pendingServiceProvider);
-
   
+
+  dataSource =  new PendingServiceProviderTableDataSource(this.serviceProvider);
 }
+
+
+
 export class PendingServiceProviderTableDataSource extends DataSource<any> {
   constructor(private pendingServiceProviderTable : PendingServiceProviderService){
     super()
