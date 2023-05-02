@@ -56,5 +56,10 @@
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  <tr
+    mat-row
+    *matRowDef="let row; columns: displayedColumns"
+    [hidden]="row.State === true"
+  ></tr>
+  <!--[hidden] in this case hides the row which has state==true-->
 </table>

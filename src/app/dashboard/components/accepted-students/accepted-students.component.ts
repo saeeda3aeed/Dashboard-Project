@@ -16,7 +16,7 @@ export class AcceptedStudentsComponent implements OnInit {
 
   constructor(private db:AngularFirestore,private student: AcceptedStudentsService ) { }
   ngOnInit(): void {
-    this.db.collection('Accepted Students').valueChanges().subscribe(val=>console.log(val))
+    this.db.collection('students').valueChanges().subscribe(val=>console.log(val))
 
 
     }

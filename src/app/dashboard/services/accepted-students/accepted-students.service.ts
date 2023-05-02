@@ -21,11 +21,11 @@ export class AcceptedStudentsService implements OnInit{
 
 
   constructor(private db:AngularFirestore) {
-    this.studentsCollection = db.collection<Students>('Accepted Students');
+    this.studentsCollection = db.collection<Students>('students');
     this.students = this.studentsCollection.valueChanges();
   }
   getStudents(){
-    return this.db.collection('Accepted Students',ref =>ref.orderBy('studentName')).valueChanges()
+    return this.db.collection('students',ref =>ref.orderBy('studentName')).valueChanges()
   }
   
 }
