@@ -12,6 +12,7 @@ import { ServiceConsumerComponent } from './components/service-consumer/service-
 import { ServiceProviderComponent } from './components/service-provider/service-provider.component';
 import { StudentsComponent } from './components/students/students.component';
 import { PendingServiceProviderComponent } from './components/pending-service-provider/pending-service-provider/pending-service-provider.component';
+import { AcceptedStudentsComponent } from './components/accepted-students/accepted-students.component';
 const routes: Routes = [
   // Sidenavwrapper Component acts like a shell & the active child Component gets rendered into the <router-outlet>
   {
@@ -62,6 +63,10 @@ const routes: Routes = [
       {
         path: 'students-table',
         component: StudentsComponent
+      },
+      {
+        path: 'accepted-students-table',
+        component: AcceptedStudentsComponent
       },
     ]
   },
