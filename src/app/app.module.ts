@@ -13,11 +13,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
-    // AppointmentTableComponent
   ],
   imports: [
     BrowserModule,FormsModule,ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment.firebase), // Initialize AngularFireModule with Firebase configuration
+        AngularFireModule.initializeApp(environment.firebase), // Initialize AngularFireModule with Firebase configuration
     AngularFirestoreModule, // Import AngularFirestoreModule
     AppRoutingModule,
     BrowserAnimationsModule

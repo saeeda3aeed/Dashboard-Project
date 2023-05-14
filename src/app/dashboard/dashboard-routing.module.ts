@@ -13,16 +13,22 @@ import { ServiceProviderComponent } from './components/service-provider/service-
 import { StudentsComponent } from './components/students/students.component';
 import { PendingServiceProviderComponent } from './components/pending-service-provider/pending-service-provider/pending-service-provider.component';
 import { AcceptedStudentsComponent } from './components/accepted-students/accepted-students.component';
+import { LoginComponent } from '../auth/login/login.component';
 const routes: Routes = [
   // Sidenavwrapper Component acts like a shell & the active child Component gets rendered into the <router-outlet>
   {
     path: '',
-    component: SidenavWrapperComponent,
+    component: LoginComponent,
     children: [
       {
         path: 'dashboard',
         component: DashboardComponent
       },
+      {
+        path: 'login',
+        component: LoginComponent
+      },
+      
       {
         path: 'info',
         component: InfoComponent
