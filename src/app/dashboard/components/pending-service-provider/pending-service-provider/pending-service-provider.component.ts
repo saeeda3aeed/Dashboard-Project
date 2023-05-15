@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { CollectionViewer, DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs';
 import { PendingServiceProviderService } from 'src/app/dashboard/services/pending-service-provider/pending-service-provider.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-pending-service-provider',
   templateUrl: './pending-service-provider.component.html',
@@ -10,7 +11,9 @@ import { PendingServiceProviderService } from 'src/app/dashboard/services/pendin
 })
 export class PendingServiceProviderComponent implements OnInit {
 
-  constructor(private serviceProvider: PendingServiceProviderService, private db:AngularFirestore) { }
+  
+  constructor(private serviceProvider: PendingServiceProviderService, private db:AngularFirestore,private router:Router) { }
+  
   serviceProviderTableDetails = {
     First_Name:'',
    Last_Name:'',

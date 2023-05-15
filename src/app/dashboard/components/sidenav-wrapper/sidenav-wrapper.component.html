@@ -14,33 +14,33 @@
         <mat-icon mat-list-icon>home</mat-icon>
         <span *ngIf="isExpanded" class="menu-item">Dashboard</span>
         <mat-menu #subMenu="matMenu">
-          <button mat-menu-item [routerLink]="'appointment-table'">
+          <button mat-menu-item (click)="navigateToAppointmentTable()">
             appointment table
           </button>
-          <button mat-menu-item [routerLink]="'request-table'">
+          <button mat-menu-item (click)="navigateToRequestTable()">
             Request table
           </button>
-          <button mat-menu-item [routerLink]="'review-table'">
+          <button mat-menu-item (click)="navigateToReviewTable()">
             Review table
           </button>
-          <button mat-menu-item [routerLink]="'schedule-table'">
+          <button mat-menu-item (click)="navigateToScheduleTable()">
             Schedule table
           </button>
-          <button mat-menu-item [routerLink]="'service-consumer-table'">
+          <button mat-menu-item (click)="navigateToServiceConsumerTable()">
             Service Consumer
           </button>
-          <button mat-menu-item [routerLink]="'service-provider-table'">
+          <button mat-menu-item (click)="navigateToServiceProviderTable()">
             Service provider
           </button>
-          <button mat-menu-item [routerLink]="'pending-service-provider'">
+          <button mat-menu-item (click)="navigateToPendingServiceProvider()">
             Pending Service provider
           </button>
 
-          <button mat-menu-item [routerLink]="'students-table'">
+          <button mat-menu-item (click)="navigateToStudentsTable()">
             students table
           </button>
 
-          <button mat-menu-item [routerLink]="'accepted-students-table'">
+          <button mat-menu-item (click)="navigateToAcceptedStudentsTable()">
             accepted students table
           </button>
         </mat-menu>
@@ -49,14 +49,9 @@
         </button>
       </mat-list-item>
 
-      <mat-list-item [routerLink]="'info'">
-        <mat-icon mat-list-icon>important_devices</mat-icon>
-        <span *ngIf="isExpanded" class="menu-item">Info</span>
-      </mat-list-item>
-
-      <mat-list-item [routerLink]="'user'">
+      <mat-list-item (click)="navigateToInfo()">
         <mat-icon mat-list-icon>supervisor_account</mat-icon>
-        <span *ngIf="isExpanded" class="menu-item">User</span>
+        <span *ngIf="isExpanded" class="menu-item">Info</span>
       </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
@@ -64,7 +59,7 @@
   <!-- Content - rendered Content for the current router path into the <router-outlet>, e.g. /dashboard or /info-->
   <mat-sidenav-content>
     <mat-toolbar>
-      <h4>Hello everyone</h4>
+      <h1>Welcome to Dashboard page</h1>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>

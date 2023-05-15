@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { InfoComponent } from './components/info/info.component';
 import { UserComponent } from './components/user/user.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -29,10 +28,11 @@ import { StudentsComponent } from './components/students/students.component';
 import { PendingServiceProviderComponent } from './components/pending-service-provider/pending-service-provider/pending-service-provider.component';
 import { AcceptedStudentsComponent } from './components/accepted-students/accepted-students.component';
 import { LoginComponent } from '../auth/login/login.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
-  declarations: [SidenavWrapperComponent, DashboardComponent, InfoComponent, UserComponent, AppointmentTableComponent, RequestTableComponent, ReviewTableComponent, ScheduleTableComponent, ServiceConsumerComponent, ServiceProviderComponent, StudentsComponent, PendingServiceProviderComponent, AcceptedStudentsComponent,LoginComponent],
+  declarations: [SidenavWrapperComponent, InfoComponent, UserComponent, AppointmentTableComponent, RequestTableComponent, ReviewTableComponent, ScheduleTableComponent, ServiceConsumerComponent, ServiceProviderComponent, StudentsComponent, PendingServiceProviderComponent, AcceptedStudentsComponent,LoginComponent, HomeComponent],
   imports: [
     CommonModule,FormsModule,
     DashboardRoutingModule,

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { InfoComponent } from './components/info/info.component';
 import { UserComponent } from './components/user/user.component';
 import { SidenavWrapperComponent } from './components/sidenav-wrapper/sidenav-wrapper.component';
@@ -14,20 +13,26 @@ import { StudentsComponent } from './components/students/students.component';
 import { PendingServiceProviderComponent } from './components/pending-service-provider/pending-service-provider/pending-service-provider.component';
 import { AcceptedStudentsComponent } from './components/accepted-students/accepted-students.component';
 import { LoginComponent } from '../auth/login/login.component';
+import { HomeComponent } from './components/home/home.component';
 const routes: Routes = [
   // Sidenavwrapper Component acts like a shell & the active child Component gets rendered into the <router-outlet>
-  {
-    path: '',
-    component: LoginComponent,
-    children: [
+
+    
+    
+      
       {
-        path: 'dashboard',
-        component: DashboardComponent
+        path: 'home',
+        component: HomeComponent
       },
       {
         path: 'login',
         component: LoginComponent
       },
+      {
+        path: 'sidenavwrapper',
+        component: SidenavWrapperComponent
+      },
+    
       
       {
         path: 'info',
@@ -74,11 +79,11 @@ const routes: Routes = [
         path: 'accepted-students-table',
         component: AcceptedStudentsComponent
       },
-    ]
-  },
+    
+  
   {
-    path: '**',
-    redirectTo: '/dashboard',
+    path: '',
+    redirectTo: '/home',
     pathMatch: 'full'
   }
 ];
