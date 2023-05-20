@@ -41,4 +41,9 @@ export class LoginComponent  {
   getPassword(password:string){
     this.password = password
   }
+
+  goBack(): void {
+    this.router.navigate(['/home']);
+
+}
 }
