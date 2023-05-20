@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class RequestTableService implements OnInit {
   ngOnInit(): void {
-    this.db.collection('Request Table').valueChanges().subscribe(val=>console.log(val))
+    this.db.collection('request').valueChanges().subscribe(val=>console.log(val))
   } 
 
   constructor(private db:AngularFirestore) { 
@@ -15,6 +15,6 @@ export class RequestTableService implements OnInit {
   }
 
   getRequestTable(){
-    return this.db.collection('Request Table',ref =>ref.orderBy('Req_ID')).valueChanges()
+    return this.db.collection('request',ref =>ref.orderBy('client_id')).valueChanges()
   }
 }

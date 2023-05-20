@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { CollectionViewer, DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs';
 import { RequestTableService } from '../../services/request-table/request-table.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-request-table',
@@ -15,22 +16,28 @@ import { RequestTableService } from '../../services/request-table/request-table.
 export class RequestTableComponent implements OnInit {
 
   
-  constructor(private requestTable: RequestTableService, private db:AngularFirestore) { }
+  constructor(private requestTable: RequestTableService, private db:AngularFirestore,private router:Router) { }
+
+
+  goBack(): void {
+    this.router.navigate(['/sidenavwrapper']);
+
+}
 
   requestTableDetails = {
-   ClientId:'',
-   Date:'',
-   Details:'',
-   Req_ID:'',
-   Worker_ID:''
+   client_id:'',
+   date:'',
+   details:'',
+   location:'',
+   worker_id:''
   }
 
   ngOnInit(): void {
-    this.db.collection('Request Table').valueChanges().subscribe(val=>console.log(val))
+    this.db.collection('request').valueChanges().subscribe(val=>console.log(val))
 
   }
 
-  displayedColumns = ['Client_Id','Date','Details','Req_ID','Worker_ID']
+  displayedColumns = ['client_id','date','details','worker_id','location']
 
 
 

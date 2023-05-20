@@ -4,6 +4,7 @@ import { CollectionViewer, DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs';
 import { RequestTableService } from '../../services/request-table/request-table.service';
 import { ReviewTableService } from '../../services/review-table/review-table.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-review-table',
@@ -12,19 +13,19 @@ import { ReviewTableService } from '../../services/review-table/review-table.ser
 })
 export class ReviewTableComponent implements OnInit {
 
-  constructor(private reviewTable: ReviewTableService, private db:AngularFirestore) { }
+  constructor(private reviewTable: ReviewTableService, private db:AngularFirestore,private router:Router) { }
+  goBack(): void {
+    this.router.navigate(['/sidenavwrapper']);
 
-  requestTableDetails = {
-    Rev_ID:'',
-    Worker_ID:''
-  }
+}
+  
 
   ngOnInit(): void {
-    this.db.collection('Review Table').valueChanges().subscribe(val=>console.log(val))
+    this.db.collection('review').valueChanges().subscribe(val=>console.log(val))
 
   }
 
-  displayedColumns = ['Rev_ID','Worker_ID']
+  displayedColumns = ['client_id','worker_id']
 
 
 

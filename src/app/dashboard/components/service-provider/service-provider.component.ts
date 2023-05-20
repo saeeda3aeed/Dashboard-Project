@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { CollectionViewer, DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 import { ServiceProviderTableService } from '../../services/service-provider/service-provider-table.service';
 @Component({
@@ -11,37 +12,56 @@ import { ServiceProviderTableService } from '../../services/service-provider/ser
 })
 export class ServiceProviderComponent implements OnInit {
 
-  constructor(private serviceProvider: ServiceProviderTableService, private db:AngularFirestore) { }
-  
+  constructor(private serviceProvider: ServiceProviderTableService, private db:AngularFirestore,private router:Router) { }
+  goBack(): void {
+    this.router.navigate(['/sidenavwrapper']);
+
+}
   serviceProviderTableDetails = {
-    First_Name:'',
-   Last_Name:'',
-   Mob_Num_I:'',
-   Mob_Num_II:'',
-    Profession:'',
-    Rate_Ratio:'',
-    Worker_ID:'',
-    State:false
+    active_zone:'',
+   available_spots:'',
+   email:'',
+   first_name:'',
+   last_name:'',
+    national_id:'',
+    number_of_raters:'',
+    password:'',
+    phone_number:'',
+    profession:'',
+    profile_pic_url:'',
+    rate_ratio:'',
+    is_active:false
 
   }
 
   ngOnInit(): void {
-    this.db.collection('Service Provider Table').valueChanges().subscribe(val=>console.log(val))
+    this.db.collection('service_provider').valueChanges().subscribe(val=>console.log(val))
   }
   displayedColumns=[
-    'First_Name',
-    'Last_Name',
-    'Mob_Num_I',
-    'Mob_Num_II',
-    'Profession',
-    'Rate_Ratio',
-    'Worker_ID',
+    'active_zone',
+    'available_spots',
+    'email',
+    'first_name',
+    'last_name',
+    'national_id',
+    'number_of_raters',
+    'password',
+    'phone_number',
+    'profession',
+    'profile_pic_url',
+    'rate_ratio',
+    'actions'
   ]
 
   dataSource =  new serviceProviderTableDataSource(this.serviceProvider);
 
-  
+  removeServiceProider(id:string){
+    this.serviceProvider.deleteServiceProvider(id)
+      }
+    
 }
+
+
 export class serviceProviderTableDataSource extends DataSource<any> {
   constructor(private serviceProviderTable : ServiceProviderTableService){
     super()

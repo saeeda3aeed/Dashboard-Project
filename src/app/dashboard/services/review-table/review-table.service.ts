@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class ReviewTableService implements OnInit {
 
   ngOnInit(): void {
-    this.db.collection('Review Table').valueChanges().subscribe(val=>console.log(val))
+    this.db.collection('review').valueChanges().subscribe(val=>console.log(val))
   } 
 
   constructor(private db:AngularFirestore) { 
@@ -16,6 +16,6 @@ export class ReviewTableService implements OnInit {
   }
 
   getReviewTable(){
-    return this.db.collection('Review Table',ref =>ref.orderBy('Rev_ID')).valueChanges()
+    return this.db.collection('review',ref =>ref.orderBy('client_id')).valueChanges()
   }
 }

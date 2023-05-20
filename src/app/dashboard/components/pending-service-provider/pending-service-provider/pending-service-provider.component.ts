@@ -14,16 +14,25 @@ export class PendingServiceProviderComponent implements OnInit {
   
   constructor(private serviceProvider: PendingServiceProviderService, private db:AngularFirestore,private router:Router) { }
   
-  serviceProviderTableDetails = {
-    First_Name:'',
-   Last_Name:'',
-   Mob_Num_I:'',
-   Mob_Num_II:'',
-    Profession:'',
-    Rate_Ratio:'',
-    Worker_ID:'',
-    State:false
+  goBack(): void {
+    this.router.navigate(['/sidenavwrapper']);
 
+}
+
+  serviceProviderTableDetails = {
+    active_zone:'',
+   available_spots:'',
+   email:'',
+   first_name:'',
+   last_name:'',
+    national_id:'',
+    number_of_raters:'',
+    password:'',
+    phone_number:'',
+    profession:'',
+    profile_pic_url:'',
+    rate_ratio:'',
+    is_active:false
   }
 
   addServiceProvider(){
@@ -40,17 +49,21 @@ this.serviceProvider.deleteServiceProvider(id)
 
  
   ngOnInit(): void {
-    this.db.collection('Service Provider Table').valueChanges().subscribe(val=>console.log(val))
+    this.db.collection('service_provider').valueChanges().subscribe(val=>console.log(val))
   }
   displayedColumns= [
-    'First_Name',
-    'Last_Name',
-    'Mob_Num_I',
-    'Mob_Num_II',
-    'Profession',
-    'Rate_Ratio',
-    'Worker_ID',
-    'Actions'
+    'active_zone',
+   'available_spots',
+   'email',
+   'first_name',
+   'last_name',
+    'national_id',
+    'number_of_raters',
+    'phone_number',
+    'profession',
+    'rate_ratio',
+    'is_active',
+    'actions'
     
   ]
   

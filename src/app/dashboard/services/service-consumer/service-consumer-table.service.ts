@@ -9,14 +9,14 @@ export class ServiceConsumerTableService implements OnInit {
 
 
   ngOnInit(): void {
-    this.db.collection('Service Consumer Table').valueChanges().subscribe(val=>console.log(val))
+    this.db.collection('service_consumer').valueChanges().subscribe(val=>console.log(val))
   } 
 
   constructor(private db:AngularFirestore) { 
     
   }
   getServiceCosumerTable(){
-    return this.db.collection('Service Consumer Table',ref =>ref.orderBy('Client_ID')).valueChanges()
+    return this.db.collection('service_consumer',ref =>ref.orderBy('first_name')).valueChanges()
 
   }
 }

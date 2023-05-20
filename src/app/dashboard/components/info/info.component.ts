@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-info',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
+  goBack(): void {
+    this.router.navigate(['/sidenavwrapper']);
 
+}
   ngOnInit(): void {
   }
 

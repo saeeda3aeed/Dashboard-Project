@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { CollectionViewer, DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 
@@ -19,49 +20,39 @@ import { Observable } from 'rxjs';
 export class AppointmentTableComponent implements OnInit {
 
 
-  constructor(private appointment: AppointmentTableService, private db:AngularFirestore) { }
+  constructor(private appointment: AppointmentTableService, private db:AngularFirestore,private router:Router) { }
 
-  appointmentDetails = {
-    APP_ID: '',
-    RATE_VALUE:'',
-    REQ_ID:'',
-    REVIEW:''
+  goBack(): void {
+    this.router.navigate(['/sidenavwrapper']);
 
-  }
+}
+
   ngOnInit(): void {
-    this.db.collection('Appointment_Table').valueChanges().subscribe(val=>console.log(val))
+    this.db.collection('appointment').valueChanges().subscribe(val=>console.log(val))
 
   }
 
-  displayedColumns = ['APP_ID','RATE_VALUE','REQ_ID','REVIEW']
-  // displayedColumns = ['APP_ID','RATE_VALUE','REQ_ID','REVIEW','Actions'] -->when we want the delete 
+  displayedColumns = ['RATE_VALUE','REQUEST_ID','REVIEW']
 // 
 
 
 
   dataSource = new appointmentDataSource(this.appointment);
   
-  
-  // addAppointment(){
-  //   this.appointment.addAppointment(this.appointmentDetails)
-  // }
-
-  // removeAppointment(id:string){
-  //   this.appointment.deleteAppointment(id)
-  // }
 }
 
 
   export class appointmentDataSource extends DataSource<any> {
-    constructor(private appointment : AppointmentTableService){
+    constructor(private appointment : AppointmentTableService,){
       super()
     }
+   
   
     connect(collectionViewer: CollectionViewer): Observable<any[]> {
       return this.appointment.getAppointments()
   }
   
-  disconnect(collectionViewer: CollectionViewer): void {
+  disconnect(collectionViewer: CollectionViewer ): void {
     
   }
   

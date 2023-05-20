@@ -15,38 +15,22 @@ add row
 <!-- delete row-->
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
-  <ng-container matColumnDef="APP_ID">
-    <th mat-header-cell *matHeaderCellDef>App_ID</th>
-    <td mat-cell *matCellDef="let element">{{ element.App_ID }}</td>
-  </ng-container>
-
   <ng-container matColumnDef="RATE_VALUE">
     <th mat-header-cell *matHeaderCellDef>Rate_Value</th>
-    <td mat-cell *matCellDef="let element">{{ element.Rate_Value }}</td>
+    <td mat-cell *matCellDef="let element">{{ element.rate_value }}</td>
   </ng-container>
-  <ng-container matColumnDef="REQ_ID">
+  <ng-container matColumnDef="REQUEST_ID">
     <th mat-header-cell *matHeaderCellDef>REQ_ID</th>
-    <td mat-cell *matCellDef="let element">{{ element.Req_ID }}</td>
+    <td mat-cell *matCellDef="let element">{{ element.request_id }}</td>
   </ng-container>
 
   <ng-container matColumnDef="REVIEW">
     <th mat-header-cell *matHeaderCellDef>REVIEW</th>
-    <td mat-cell *matCellDef="let element">{{ element.Review }}</td>
+    <td mat-cell *matCellDef="let element">{{ element.review }}</td>
   </ng-container>
-
-  <!-- <ng-container matColumnDef="Actions">
-    <th mat-header-cell *matHeaderCellDef>Action</th>
-    <td mat-cell *matCellDef="let element">
-      <button
-        mat-button
-        class="button-remove"
-        (click)="removeStudent(element.id)"
-      >
-        Delete
-      </button>
-    </td>
-  </ng-container> -->
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
+
+<button (click)="goBack()">Go Back</button>

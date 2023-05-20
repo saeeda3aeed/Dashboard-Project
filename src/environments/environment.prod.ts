@@ -1,13 +1,11 @@
 export const environment = {
   production: true,
   firebase:{
-    apiKey: "AIzaSyBS-7ExLIqbnxo-REzUqBf1QtxNY1IEw98",
-  authDomain: "dashboard-app-839e8.firebaseapp.com",
-  databaseURL: "https://dashboard-app-839e8-default-rtdb.firebaseio.com",
-  projectId: "dashboard-app-839e8",
-  storageBucket: "dashboard-app-839e8.appspot.com",
-  messagingSenderId: "435602397501",
-  appId: "1:435602397501:web:c66772c71a1997fe87cd54",
-  measurementId: "G-VSKHDM9XG7"
+    apiKey: "AIzaSyCAIqhxa0m_B1L2Tkgjm5CaYLi8inlQ4pg",
+    authDomain: "shakoosh-cba53.firebaseapp.com",
+    projectId: "shakoosh-cba53",
+    storageBucket: "shakoosh-cba53.appspot.com",
+    messagingSenderId: "545599354386",
+    appId: "1:545599354386:web:493a916b8363ff25088acb"
   }
 };

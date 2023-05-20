@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { CollectionViewer, DataSource } from '@angular/cdk/collections';
 import { Observable } from 'rxjs';
 import { ServiceConsumerTableService } from '../../services/service-consumer/service-consumer-table.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-service-consumer',
@@ -13,36 +14,40 @@ export class ServiceConsumerComponent implements OnInit {
 
 
   
-    constructor(private serviceConsumer: ServiceConsumerTableService, private db:AngularFirestore) { }
+    constructor(private serviceConsumer: ServiceConsumerTableService, private db:AngularFirestore,private router:Router) { }
+    goBack(): void {
+      this.router.navigate(['/sidenavwrapper']);
+  
+  }
   
     serviceConsumerTableDetails = {
-     Address:'',
-     Client_ID:'',
-     Email:'',
-     First_Name:'',
-     Last_Name:'',
-     Location_I:'',
-     Location_II:'',
-     Mob_NumI:'',
-     Mob_NumII:'',
-     Password:''
+     creation_date:'',
+     email:'',
+     first_name:'',
+     last_name:'',
+     locations:[],
+     number_of_raters:'',
+     password:'',
+     phone_number:'',
+     profile_pic_url:'',
+     rate_ratio:''
 
     }
   
     ngOnInit(): void {
-      this.db.collection('Service Consumer Table').valueChanges().subscribe(val=>console.log(val))
+      this.db.collection('service_consumer').valueChanges().subscribe(val=>console.log(val))
   
     }
   
-    displayedColumns = [  'Address',
-    'Client_ID',
-    'Email',
-    'First_Name',
-    'Last_Name',
-    'Location_I',
-    'Location_II',
-    'Mob_Num_I',
-    'Mob_Num_II',
+    displayedColumns = [  'creation_date',
+    'email',
+    'first_name',
+    'last_name',
+    'locations',
+    'number_of_raters',
+    'password',
+    'phone_number',
+    'rate_ratio'
     ]
   
   

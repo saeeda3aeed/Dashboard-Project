@@ -3,7 +3,6 @@ import { AngularFirestore,AngularFirestoreCollection } from '@angular/fire/compa
 import { Observable } from 'rxjs';
 
 interface Appointments{
-  APP_ID: string,
   RATE_VALUE:string,
   REQ_ID:string,
   REVIEW:string
@@ -14,7 +13,7 @@ interface Appointments{
 })
 export class AppointmentTableService implements OnInit {
   ngOnInit(): void {
-    this.db.collection('Appointment_Table').valueChanges().subscribe(val=>console.log(val))
+    this.db.collection('appointment').valueChanges().subscribe(val=>console.log(val))
   } 
 
   constructor(private db:AngularFirestore) { 
@@ -22,6 +21,6 @@ export class AppointmentTableService implements OnInit {
   }
 
   getAppointments(){
-    return this.db.collection('Appointment_Table',ref =>ref.orderBy('App_ID')).valueChanges()
+    return this.db.collection('appointment',ref =>ref.orderBy('request_id')).valueChanges()
   }
 }
