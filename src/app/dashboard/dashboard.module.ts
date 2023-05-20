@@ -14,6 +14,7 @@ import {MatInputModule} from '@angular/material/input'
 import {MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import {MatCardModule} from "@angular/material/card"
+import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 
 
 //----------
@@ -35,7 +36,7 @@ import { HomeComponent } from './components/home/home.component';
   declarations: [SidenavWrapperComponent, InfoComponent, UserComponent, AppointmentTableComponent, RequestTableComponent, ReviewTableComponent, ScheduleTableComponent, ServiceConsumerComponent, ServiceProviderComponent, StudentsComponent, PendingServiceProviderComponent, AcceptedStudentsComponent,LoginComponent, HomeComponent],
   imports: [
     CommonModule,FormsModule,
-    DashboardRoutingModule,
+    DashboardRoutingModule,MdbFormsModule,
     // NG Material Modules
     MatSidenavModule,MatProgressSpinnerModule,
     MatIconModule,MatCardModule,
